@@ -4,11 +4,17 @@
     "test:run": "cypress run"
   },
   "devDependencies": {
+    "@babel/preset-env": "7.4.2",
     "@cypress/webpack-preprocessor": "4.0.3",
+    "@types/node": "8.0.29",
+    "babel-loader": "8.0.5",
     "cypress": "3.2.0",
     "ts-loader": "5.3.3",
     "typescript": "3.2.2",
     "webpack": "4.8.3",
     "webpack-cli": "3.3.0"
+  },
+  "dependencies": {
+    "typescript-cypress-unexpect-token-spread-operator-demo--module1": "0.1.0"
   }
 }

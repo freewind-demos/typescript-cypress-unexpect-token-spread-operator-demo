@@ -1,39 +1,15 @@
-import {add} from '../../add'
+import {fail} from "assert";
 
-describe('TypeScript', () => {
-  it('works', () => {
-    // note TypeScript definition
-    const x: number = 42
-  })
+const hello = require('typescript-cypress-unexpect-token-spread-operator-demo--module1');
 
-  it('checks shape of an object', () => {
-    const object = {
-      age: 21,
-      name: 'Joe',
+describe('cypress', () => {
+  it('uses bad hello function', () => {
+    try {
+      hello();
+    } catch (e) {
+      console.error(e);
+      fail(e);
+      throw e;
     }
-    expect(object).to.have.all.keys('name', 'age')
   })
-
-  it('uses cy commands', () => {
-    cy.wrap({}).should('deep.eq', {})
-  })
-
-  it('tests our example site', () => {
-    cy.visit('https://example.cypress.io/')
-    cy.get('.home-list')
-      .contains('Querying')
-      .click()
-    cy.get('#query-btn').should('contain', 'Button')
-  })
-
-  // enable once we release updated TypeScript definitions
-  it('has Cypress object type definition', () => {
-    expect(Cypress.version).to.be.a('string')
-  })
-
-
-  it('adds numbers', () => {
-    expect(add(2, 3)).to.equal(5)
-  })
-
 })

@@ -1,11 +1,14 @@
-TypeScript Cypress Integration Test Demo
-=========================================
+TypeScript Cypress Unexpected Token Spread Operator Demo
+========================================================
 
-注意点：
+由于cypress使用的electron版本过旧，不支持`...`操作符，所以如果引用到的文件中有`...`，
+则会报错：
 
-1. `cypress/plugins/index.js`不能使用`.ts`，所以`webpack.config.js`也不能使用`.ts`
-2. 由于混用了`.js`与`.ts`，所以webpack中要设置`resolve`->`extensions`
-3. `tsconfig.json`中一定要设置`"types": [ "cypress" ]`，否则`cy`等typing找不到
+```
+Uncaught SyntaxError: Unexpected token ...
+```
+
+解决办法是在webpack config中配置babel对js文件进行转换。
 
 ```
 npm install
